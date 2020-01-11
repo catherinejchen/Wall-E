@@ -60,16 +60,16 @@ Int turnAngleCourseCorrectionR
  
 
 turn(int angle){
-	// negative angles mean left 
-	
+  // negative angles mean left 
+  
 }
 
 
 adjustLR(bool hitLeft){
-	if(hitLeft){
-	turn(*right*);
+  if(hitLeft){
+  turn(*right*);
 } else {
-	turn(*left*);
+  turn(*left*);
 }
 }
 
@@ -90,7 +90,7 @@ void adjustLeft(){
   turn(10);
   currentTime = millis();
   while (millis() < (currentTime + 60)){
-	goForward();
+  goForward();
   }
   turn(-8);
 }
@@ -100,7 +100,7 @@ void adjustRight(){
   turn(-10);
    currentTime = millis();
   while (millis() < (currentTime + 60)){
-	goForward();
+  goForward();
   }
   turn(8);
 }
@@ -114,25 +114,25 @@ void cornerTurn(){
   turn(90);
   currentTime = millis();
   while ((sense_front == false) && (millis < (currentTime + 1000)){
-	goForward();
+  goForward();
   }
   if (sense_front == true){
-	turn(180);
+  turn(180);
   }
 }
 
 void loop() {
   while ((sense_front == false) && (sense_left == false) && (sense_right == false)){
-	goForward();
+  goForward();
   }
   if ((sense_front == false) && (sense_left == true) && (sense_right == false)){
-	adjustLeft();
+  adjustLeft();
   }
   if ((sense_front == false) && (sense_left == false) && (sense_right == true)){
-	adjustRight();
+  adjustRight();
   }
   if (sense_front == true){
-	cornerTurn();
+  cornerTurn();
   }
 }
  
